@@ -65,12 +65,12 @@ All internal links are **relative**, so the site also works when opened directly
 
 ### 1. Your domain (important for SEO)
 Absolute URLs (canonical tags, Open Graph, sitemap) currently use the placeholder
-**`https://www.elevateautomation.in`**. Replace it with your real domain everywhere:
+**`https://elevateautomation.in`**. Replace it with your real domain everywhere:
 
 ```bash
 # from the project root — replace with your actual domain
-grep -rl "www.elevateautomation.in" . --include="*.html" --include="*.xml" --include="*.txt" \
-  | xargs sed -i 's#https://www.elevateautomation.in#https://YOUR-DOMAIN.com#g'
+grep -rl "elevateautomation.in" . --include="*.html" --include="*.xml" --include="*.txt" \
+  | xargs sed -i 's#https://elevateautomation.in#https://YOUR-DOMAIN.com#g'
 ```
 
 Then update `sitemap.xml` and `robots.txt` if your domain differs.
