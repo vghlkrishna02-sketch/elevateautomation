@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" />
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; }
+  body {
+    font-family: "Space Grotesk", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #eef1fb; position: relative; overflow: hidden;
+    background:
+      radial-gradient(60% 60% at 85% -10%, rgba(99,102,241,.42), transparent 60%),
+      radial-gradient(55% 55% at 5% 10%, rgba(34,211,238,.28), transparent 62%),
+      radial-gradient(50% 60% at 60% 120%, rgba(16,185,129,.28), transparent 60%),
+      #05060d;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    -webkit-mask-image: radial-gradient(120% 90% at 30% 0%, #000 30%, transparent 80%);
+  }
+  .wrap { position: relative; height: 100%; padding: 70px 72px; display: flex; flex-direction: column; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .brand .mark { width: 62px; height: 62px; filter: drop-shadow(0 6px 20px rgba(34,211,238,.4)); }
+  .brand .name b { font-size: 30px; font-weight: 700; letter-spacing: -.01em; display: block; line-height: 1; }
+  .brand .name span { font-size: 15px; letter-spacing: .34em; text-transform: uppercase; color: #22d3ee; }
+  .content { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+  .copy { max-width: 680px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #67e8f9; padding: 8px 16px; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; background: rgba(255,255,255,.04); margin-bottom: 26px; }
+  .eyebrow::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #22d3ee; box-shadow: 0 0 14px 3px rgba(34,211,238,.8); }
+  h1 { font-size: 66px; font-weight: 700; line-height: 1.04; letter-spacing: -.02em; }
+  .grad { background: linear-gradient(100deg, #a5b4fc, #67e8f9 50%, #6ee7b7); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .sub { font-family: "Inter", sans-serif; font-size: 26px; color: #c3cae1; margin-top: 22px; font-weight: 500; }
+  .chips { display: flex; gap: 12px; margin-top: 34px; flex-wrap: wrap; }
+  .chip { font-family: "Inter", sans-serif; font-size: 17px; color: #dfe4f2; padding: 9px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.05); }
+  /* mini chat */
+  .chat { width: 300px; flex-shrink: 0; border-radius: 26px; padding: 18px; background: rgba(11,20,26,.9); border: 1px solid rgba(255,255,255,.14); box-shadow: 0 40px 90px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(34,211,238,.08); }
+  .chat .top { display: flex; align-items: center; gap: 10px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .chat .av { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg,#818cf8,#22d3ee,#34d399); display: flex; align-items: center; justify-content: center; }
+  .chat .av svg { width: 22px; height: 22px; }
+  .chat .who b { font-family: "Inter",sans-serif; font-size: 16px; display: flex; align-items: center; gap: 6px; }
+  .chat .who .ai { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 5px; background: rgba(52,211,153,.2); color: #6ee7b7; }
+  .chat .who small { font-family: "Inter",sans-serif; font-size: 12px; color: #8aa0aa; }
+  .b { font-family: "Inter", sans-serif; font-size: 15px; line-height: 1.4; padding: 10px 13px; border-radius: 13px; margin-top: 12px; max-width: 90%; }
+  .b.out { background: #005c4b; margin-left: auto; border-top-right-radius: 3px; }
+  .b.in { background: #1f2c34; border-top-left-radius: 3px; }
+  .lead { display: inline-block; margin-top: 12px; font-family: "Inter",sans-serif; font-size: 13px; font-weight: 700; padding: 5px 11px; border-radius: 8px; background: rgba(255,92,92,.18); color: #ff9b9b; }
+  .foot { display: flex; align-items: center; justify-content: space-between; font-family: "Inter", sans-serif; }
+  .foot .site { font-size: 20px; color: #8b93b0; }
+  .foot .site b { color: #eef1fb; }
+  .foot .badge { font-size: 16px; color: #6ee7b7; display: flex; align-items: center; gap: 8px; }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="wrap">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 40 40" fill="none">
+        <defs><linearGradient id="g" x1="4" y1="36" x2="36" y2="6" gradientUnits="userSpaceOnUse"><stop stop-color="#6366F1"/><stop offset=".5" stop-color="#22D3EE"/><stop offset="1" stop-color="#34D399"/></linearGradient></defs>
+        <rect x="5" y="25" width="6.6" height="11" rx="3.3" fill="url(#g)" opacity=".5"/>
+        <rect x="16.7" y="20" width="6.6" height="16" rx="3.3" fill="url(#g)" opacity=".78"/>
+        <rect x="28.4" y="14" width="6.6" height="22" rx="3.3" fill="url(#g)"/>
+        <path d="M6 22.5 L17 16.5 L24 19 L34 8.5" stroke="url(#g)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M27.5 8 L35 7.2 L34.4 14.6" stroke="url(#g)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="name"><b>Elevate</b><span>Automation</span></span>
+    </div>
+
+    <div class="content">
+      <div class="copy">
+        <span class="eyebrow">WhatsApp AI · CRM · Automation</span>
+        <h1>Put your sales team on <span class="grad">autopilot.</span></h1>
+        <p class="sub">A 24×7 AI WhatsApp assistant that answers, qualifies &amp; cross-sells — with a full CRM.</p>
+        <div class="chips">
+          <span class="chip">AI product Q&amp;A</span>
+          <span class="chip">Spec sheets</span>
+          <span class="chip">Lead scoring</span>
+          <span class="chip">Cross-sell</span>
+        </div>
+      </div>
+
+      <div class="chat">
+        <div class="top">
+          <span class="av"><svg viewBox="0 0 24 24" fill="none" stroke="#06121f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></span>
+          <span class="who"><b>PrecisionParts <span class="ai">AI</span></b><small>online · replies instantly</small></span>
+        </div>
+        <div class="b out">Do you have SKF 6205? Need 200 units.</div>
+        <div class="b in">Yes ✅ In stock, 24-hr dispatch. Sending spec sheet…</div>
+        <span class="lead">🔥 Hot lead · team alerted</span>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span class="site">www.<b>elevateautomation</b>.in</span>
+      <span class="badge">● Live in under 3 weeks</span>
+    </div>
+  </div>
+</body>
+</html>

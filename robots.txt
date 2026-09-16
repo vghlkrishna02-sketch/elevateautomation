@@ -1,0 +1,7 @@
+# Elevate Automation — robots.txt
+User-agent: *
+Allow: /
+
+# Block nothing by default. Add disallow rules here if needed.
+
+Sitemap: https://www.elevateautomation.in/sitemap.xml
