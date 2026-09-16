@@ -192,7 +192,7 @@
 
       var mode = form.getAttribute("data-mode") || "whatsapp";
       var wa = form.getAttribute("data-wa") || "918200191137";
-      var mail = form.getAttribute("data-email") || "elevateelearning@gmail.com";
+      var mail = form.getAttribute("data-email") || "team@elevateautomation.in";
 
       var success = $("#formSuccess");
       if (success) {

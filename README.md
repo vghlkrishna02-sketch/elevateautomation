@@ -84,7 +84,7 @@ These are set from your quotation. Change them if needed (search & replace):
 | What | Current value |
 | --- | --- |
 | WhatsApp / phone | `+91 82001 91137` → links use `918200191137` |
-| Email | `elevateelearning@gmail.com` |
+| Email | `team@elevateautomation.in` |
 | LinkedIn | `https://www.linkedin.com/company/elevate-automation` *(placeholder — update)* |
 | Instagram | `https://www.instagram.com/elevateautomation` *(placeholder — update)* |
 
