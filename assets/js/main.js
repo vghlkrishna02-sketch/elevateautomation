@@ -25,6 +25,55 @@
     });
   }
 
+  /* ---------- Premium scroll background: parallax orbs + progress + wash ----- */
+  // Injected here (no per-page markup) so it applies site-wide and degrades
+  // gracefully — the CSS base wash still shows if JS is unavailable.
+  (function initScrollScene() {
+    var bg = document.createElement("div");
+    bg.className = "site-bg";
+    bg.setAttribute("aria-hidden", "true");
+    bg.innerHTML =
+      '<span class="orb orb-1"></span><span class="orb orb-2"></span>' +
+      '<span class="orb orb-3"></span><span class="orb orb-4"></span>';
+    document.body.appendChild(bg);
+
+    var bar = document.createElement("div");
+    bar.className = "scroll-progress";
+    bar.setAttribute("aria-hidden", "true");
+    document.body.appendChild(bar);
+
+    var orbs = $$(".orb", bg);
+    var docEl = document.documentElement;
+    var rate = [0.05, -0.032, 0.07, -0.055];   // vertical parallax speed per orb
+    var drift = [-0.018, 0.028, -0.022, 0.02];  // gentle horizontal drift
+    var lastY = 0, ticking = false;
+
+    function render() {
+      ticking = false;
+      var y = lastY;
+      var docH = (docEl.scrollHeight - window.innerHeight) || 1;
+      var p = Math.min(Math.max(y / docH, 0), 1);
+      bar.style.transform = "scaleX(" + p.toFixed(4) + ")";
+      if (reduceMotion) return;
+      for (var i = 0; i < orbs.length; i++) {
+        orbs[i].style.transform =
+          "translate3d(" + (y * drift[i]).toFixed(1) + "px," +
+          (y * rate[i]).toFixed(1) + "px,0)";
+      }
+      // Nudge the fixed base-wash gradients so the whole scene breathes on scroll
+      docEl.style.setProperty("--sy1", (y * 0.028).toFixed(1) + "px");
+      docEl.style.setProperty("--sy2", (y * -0.02).toFixed(1) + "px");
+      docEl.style.setProperty("--sx", (y * 0.014).toFixed(1) + "px");
+    }
+    function onScrollScene() {
+      lastY = window.pageYOffset || docEl.scrollTop;
+      if (!ticking) { ticking = true; requestAnimationFrame(render); }
+    }
+    window.addEventListener("scroll", onScrollScene, { passive: true });
+    window.addEventListener("resize", onScrollScene, { passive: true });
+    render();
+  })();
+
   /* ---------- Mobile navigation ---------- */
   var toggle = $("#navToggle");
   var menu = $("#navMenu");

@@ -1,16 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none" role="img" aria-label="Elevate Automation logo">
   <defs>
-    <linearGradient id="eaGrad" x1="4" y1="36" x2="36" y2="6" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#6366F1"/>
-      <stop offset="0.5" stop-color="#22D3EE"/>
-      <stop offset="1" stop-color="#34D399"/>
+    <linearGradient id="eaE" x1="7" y1="34" x2="30" y2="7" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E4FC4"/>
+      <stop offset="1" stop-color="#2E7BE6"/>
+    </linearGradient>
+    <linearGradient id="eaArrow" x1="14" y1="26" x2="35" y2="7" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2E86F0"/>
+      <stop offset="1" stop-color="#48B2FF"/>
     </linearGradient>
   </defs>
-  <!-- ascending bars -->
-  <rect x="5" y="25" width="6.6" height="11" rx="3.3" fill="url(#eaGrad)" opacity="0.5"/>
-  <rect x="16.7" y="20" width="6.6" height="16" rx="3.3" fill="url(#eaGrad)" opacity="0.78"/>
-  <rect x="28.4" y="14" width="6.6" height="22" rx="3.3" fill="url(#eaGrad)"/>
-  <!-- rising growth arrow -->
-  <path d="M6 22.5 L17 16.5 L24 19 L34 8.5" stroke="url(#eaGrad)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M27.5 8 L35 7.2 L34.4 14.6" stroke="url(#eaGrad)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- E: spine + three arms -->
+  <rect x="7" y="7"    width="5.4" height="26"  rx="2.7" fill="url(#eaE)"/>
+  <rect x="7" y="7"    width="18"  height="5.4" rx="2.7" fill="url(#eaE)"/>
+  <rect x="7" y="17.3" width="11.5" height="5.4" rx="2.7" fill="url(#eaE)"/>
+  <rect x="7" y="27.6" width="20"  height="5.4" rx="2.7" fill="url(#eaE)"/>
+  <!-- rising growth arrow sweeping up-right -->
+  <path d="M16 25.3 C22 24, 27.5 20, 33.6 9.4" stroke="url(#eaArrow)" stroke-width="4.1" stroke-linecap="round"/>
+  <path d="M27.4 8.7 L35 7.6 L34.2 15.4" stroke="url(#eaArrow)" stroke-width="4.1" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
