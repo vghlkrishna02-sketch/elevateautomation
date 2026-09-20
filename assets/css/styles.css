@@ -115,19 +115,6 @@ body::before {
     var(--bg);
   transition: background-position .3s linear;
 }
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: radial-gradient(125% 95% at 50% 0%, #000 26%, transparent 76%);
-          mask-image: radial-gradient(125% 95% at 50% 0%, #000 26%, transparent 76%);
-}
 
 /* Premium scroll background: parallax orbs (injected by JS) */
 .site-bg {
