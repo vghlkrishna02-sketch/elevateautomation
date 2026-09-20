@@ -72,3 +72,7 @@
   border-radius: var(--r-pill); border: 1px solid var(--border); background: var(--surface);
   box-shadow: var(--shadow-sm); font-weight: 600; font-size: .95rem; color: var(--text); }
 .feature-pill svg { width: 18px; height: 18px; color: var(--emerald); }
+
+/* Remove the grid/box pattern background in the React app (keep soft aurora) */
+body::after { display: none !important; }
+.grid-overlay { display: none !important; }

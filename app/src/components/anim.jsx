@@ -18,7 +18,6 @@ export function AuroraBackground() {
         <motion.span className="a-orb a2" style={{ y: y2 }} />
         <motion.span className="a-orb a3" style={{ y: y3 }} />
       </div>
-      <div className="grid-overlay" aria-hidden="true" />
       <motion.div className="scroll-progress" style={{ scaleX: bar }} aria-hidden="true" />
     </>
   )
