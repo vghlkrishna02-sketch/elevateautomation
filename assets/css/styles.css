@@ -1,46 +1,48 @@
 /* ==========================================================================
    Elevate Automation — Core Design System
-   Premium dark, futuristic UI. Hand-crafted, dependency-free.
+   Premium dark, futuristic AI-SaaS UI. Hand-crafted, dependency-free.
    ========================================================================== */
 
-/* ---------- Design tokens (Light theme) ---------- */
+/* ---------- Design tokens (Dark theme) ---------- */
 :root {
-  /* Background layers */
-  --bg: #f6f8fc;
-  --bg-1: #ffffff;
-  --bg-2: #eef3fa;
-  --bg-3: #e5edf7;
-  --surface: #ffffff;
-  --surface-2: #f1f6fd;
-  --surface-strong: #e7eefa;
-  --border: rgba(18, 40, 78, 0.10);
-  --border-strong: rgba(18, 40, 78, 0.18);
+  color-scheme: dark;
+
+  /* Background layers — deep, blue-tinted near-black canvas */
+  --bg: #060814;
+  --bg-1: #0b0f22;
+  --bg-2: #0e1329;
+  --bg-3: #131a35;
+  --surface: rgba(255, 255, 255, 0.038);
+  --surface-2: rgba(255, 255, 255, 0.065);
+  --surface-strong: rgba(255, 255, 255, 0.10);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.17);
 
   /* Text */
-  --text: #0e1f3a;
-  --text-2: #41506c;
-  --muted: #6a7893;
-  --muted-2: #97a2b8;
+  --text: #eef1fb;
+  --text-2: #b9c2de;
+  --muted: #8b96b8;
+  --muted-2: #5f6a8c;
 
-  /* Brand (tuned for readability on light) */
-  --indigo: #4f46e5;
-  --indigo-2: #6366f1;
-  --cyan: #1183c6;
-  --emerald: #099268;
-  --violet: #8b3ff0;
-  --wa: #1aa653;
+  /* Brand — vibrant violet → blue → cyan */
+  --indigo: #7c6bff;
+  --indigo-2: #8f7dff;
+  --cyan: #43dbf0;
+  --emerald: #34d399;
+  --violet: #a855f7;
+  --wa: #25d366;
   --wa-dark: #128c7e;
 
-  --grad: linear-gradient(120deg, #4f46e5 0%, #2e7be6 52%, #17a3d9 100%);
-  --grad-soft: linear-gradient(120deg, #6366f1 0%, #2e86f0 55%, #17b3c9 100%);
-  --grad-text: linear-gradient(100deg, #4f46e5 0%, #2563eb 48%, #0e8fbf 100%);
+  --grad: linear-gradient(120deg, #8b5cf6 0%, #5b7cff 52%, #22d3ee 100%);
+  --grad-soft: linear-gradient(120deg, #a78bfa 0%, #60a5fa 55%, #34dcee 100%);
+  --grad-text: linear-gradient(100deg, #b79bff 0%, #7aa2ff 48%, #46e0f0 100%);
 
   /* Effects */
-  --glow-indigo: 0 0 0 1px rgba(79,70,229,.20), 0 18px 60px -14px rgba(46,123,230,.30);
-  --glow-cyan: 0 24px 70px -22px rgba(46,123,230,.32);
-  --shadow-sm: 0 2px 10px rgba(23,49,99,.06);
-  --shadow: 0 20px 50px -26px rgba(23,49,99,.22);
-  --shadow-lg: 0 40px 90px -44px rgba(23,49,99,.30);
+  --glow-indigo: 0 0 0 1px rgba(124,107,255,.28), 0 18px 60px -14px rgba(124,107,255,.50);
+  --glow-cyan: 0 24px 70px -22px rgba(52,211,238,.38);
+  --shadow-sm: 0 2px 12px rgba(0,0,0,.45);
+  --shadow: 0 24px 60px -28px rgba(0,0,0,.72);
+  --shadow-lg: 0 44px 100px -46px rgba(0,0,0,.85);
 
   /* Radii */
   --r-xs: 8px;
@@ -90,16 +92,26 @@ input, textarea, select { font: inherit; color: inherit; }
 ul { list-style: none; padding: 0; }
 :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 4px; }
 
-/* Ambient page background — light, scroll-reactive base wash */
+/* Minimal cursor glow — soft light that trails the pointer (injected by JS) */
+.cursor-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 60;              /* sits above content; only lightens via screen blend */
+  pointer-events: none;
+  display: block;
+  mix-blend-mode: screen;   /* glow adds light on the dark canvas, dark stays clear */
+}
+
+/* Ambient page background — scroll-reactive base wash */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -3;
   background:
-    radial-gradient(58% 52% at calc(84% + var(--sx, 0px)) calc(-6% + var(--sy1, 0px)), rgba(79,102,241,.14), transparent 60%),
-    radial-gradient(52% 48% at calc(6% - var(--sx, 0px)) calc(6% + var(--sy2, 0px)), rgba(46,134,240,.12), transparent 62%),
-    radial-gradient(54% 60% at 50% calc(112% - var(--sy1, 0px)), rgba(23,179,201,.10), transparent 60%),
+    radial-gradient(58% 52% at calc(84% + var(--sx, 0px)) calc(-6% + var(--sy1, 0px)), rgba(124,92,255,.24), transparent 60%),
+    radial-gradient(52% 48% at calc(6% - var(--sx, 0px)) calc(6% + var(--sy2, 0px)), rgba(59,120,255,.20), transparent 62%),
+    radial-gradient(54% 60% at 50% calc(112% - var(--sy1, 0px)), rgba(34,211,238,.16), transparent 60%),
     var(--bg);
   transition: background-position .3s linear;
 }
@@ -110,8 +122,8 @@ body::after {
   z-index: -1;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(18,40,78,.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(18,40,78,.045) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
   background-size: 64px 64px;
   -webkit-mask-image: radial-gradient(125% 95% at 50% 0%, #000 26%, transparent 76%);
           mask-image: radial-gradient(125% 95% at 50% 0%, #000 26%, transparent 76%);
@@ -241,10 +253,10 @@ strong { color: var(--text); font-weight: 600; }
   border-bottom: 1px solid transparent;
 }
 .site-header.scrolled {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(16px) saturate(140%);
+  background: rgba(7, 10, 24, 0.72);
+  backdrop-filter: blur(18px) saturate(140%);
   border-bottom-color: var(--border);
-  box-shadow: 0 8px 30px -22px rgba(23,49,99,.5);
+  box-shadow: 0 10px 34px -22px rgba(0,0,0,.7);
 }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 74px; gap: 1rem; }
 .brand { display: inline-flex; align-items: center; gap: .6rem; flex-shrink: 0; }
@@ -385,8 +397,8 @@ html.js .bubble { opacity: 0; transform: translateY(8px); }
 /* Floating stat cards around phone */
 .phone-float {
   position: absolute; z-index: 4; padding: .7rem .9rem; border-radius: var(--r);
-  background: rgba(255,255,255,.9); backdrop-filter: blur(12px);
-  border: 1px solid var(--border); box-shadow: var(--shadow);
+  background: rgba(19,24,46,.72); backdrop-filter: blur(14px);
+  border: 1px solid var(--border-strong); box-shadow: var(--shadow);
   display: flex; align-items: center; gap: .6rem; font-size: .8rem;
 }
 .phone-float .dot { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; flex-shrink: 0; }
@@ -687,7 +699,7 @@ html.js [data-reveal].in { opacity: 1; transform: none; }
   .nav-toggle { display: block; }
   .nav-menu {
     position: fixed; inset: 74px 0 auto 0; flex-direction: column; align-items: stretch;
-    gap: .2rem; padding: 1.2rem var(--gutter) 1.8rem; background: rgba(255,255,255,.97);
+    gap: .2rem; padding: 1.2rem var(--gutter) 1.8rem; background: rgba(8,11,26,.97);
     backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); box-shadow: var(--shadow);
     transform: translateY(-12px); opacity: 0; pointer-events: none;
     transition: transform .3s var(--ease), opacity .3s var(--ease); max-height: calc(100vh - 74px); overflow-y: auto;
