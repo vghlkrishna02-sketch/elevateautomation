@@ -55,7 +55,7 @@
     var text = opts.text != null ? opts.text : "Elevate Automation";
     var particleSize = opts.particleSize || 2;
     var density = opts.density || 4;
-    var color = opts.color || "#0e1f3a";
+    var color = opts.color || "#b9c6ff";
     var highlightColor = opts.highlightColor || "#2e7be6";
     var scatter = opts.scatter != null ? opts.scatter : 180;
     var gatherDuration = opts.gatherDuration != null ? opts.gatherDuration : 1600;
@@ -316,7 +316,7 @@
     els.forEach(function (el) {
       initParticleText(el, {
         text: el.getAttribute("data-particle-text") || "Elevate Automation",
-        color: el.getAttribute("data-color") || "#0e1f3a",
+        color: el.getAttribute("data-color") || "#b9c6ff",
         highlightColor: el.getAttribute("data-highlight") || "#2e7be6",
         trigger: el.getAttribute("data-trigger") || "hover",
         glow: el.getAttribute("data-glow") !== "false",
