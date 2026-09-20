@@ -92,7 +92,17 @@ input, textarea, select { font: inherit; color: inherit; }
 ul { list-style: none; padding: 0; }
 :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 4px; }
 
-/* Ambient page background — light, scroll-reactive base wash */
+/* Minimal cursor glow — soft light that trails the pointer (injected by JS) */
+.cursor-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 60;              /* sits above content; only lightens via screen blend */
+  pointer-events: none;
+  display: block;
+  mix-blend-mode: screen;   /* glow adds light on the dark canvas, dark stays clear */
+}
+
+/* Ambient page background — scroll-reactive base wash */
 body::before {
   content: "";
   position: fixed;
