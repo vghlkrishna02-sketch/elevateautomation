@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Animated-component styles (React Bits-inspired, original implementations)
+   Layered on top of base.css
+   ========================================================================== */
+
+/* Aurora background: animated gradient orbs behind everything */
+.aurora { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
+.aurora .a-orb { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .6; will-change: transform; }
+.aurora .a1 { width: 46vw; height: 46vw; top: -12vw; right: -8vw;
+  background: radial-gradient(circle at 30% 30%, rgba(79,70,229,.30), transparent 68%);
+  animation: aFloat1 18s ease-in-out infinite alternate; }
+.aurora .a2 { width: 40vw; height: 40vw; top: 40vh; left: -12vw;
+  background: radial-gradient(circle at 50% 50%, rgba(46,134,240,.26), transparent 68%);
+  animation: aFloat2 22s ease-in-out infinite alternate; }
+.aurora .a3 { width: 44vw; height: 44vw; bottom: -16vw; right: 4vw;
+  background: radial-gradient(circle at 50% 50%, rgba(23,179,201,.22), transparent 70%);
+  animation: aFloat3 20s ease-in-out infinite alternate; }
+@keyframes aFloat1 { to { transform: translate(-50px, 46px) scale(1.12); } }
+@keyframes aFloat2 { to { transform: translate(60px, -30px) scale(1.08); } }
+@keyframes aFloat3 { to { transform: translate(-40px, -40px) scale(1.1); } }
+
+.grid-overlay { position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(18,40,78,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18,40,78,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(125% 95% at 50% 0%, #000 26%, transparent 76%);
+          mask-image: radial-gradient(125% 95% at 50% 0%, #000 26%, transparent 76%); }
+
+.scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 200;
+  transform-origin: 0 50%; background: var(--grad); box-shadow: 0 1px 8px -1px rgba(46,123,230,.6); }
+
+/* Gradient text */
+.gtext { background: var(--grad-text); -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent; }
+
+/* Shiny text: a light sweep across the text */
+.shiny { position: relative; color: var(--muted);
+  background: linear-gradient(90deg, var(--muted) 0%, var(--muted) 40%, #fff 50%, var(--muted) 60%, var(--muted) 100%);
+  background-size: 200% 100%; -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; animation: shine 4.5s linear infinite; }
+@keyframes shine { to { background-position: -200% 0; } }
+
+/* Split text: per-word rise */
+.split-word { display: inline-block; white-space: pre; will-change: transform, opacity; }
+
+/* Tilt card */
+.tilt { transform-style: preserve-3d; will-change: transform; }
+.tilt > * { transform: translateZ(30px); }
+
+/* Magnetic button wrapper */
+.magnet { display: inline-flex; will-change: transform; }
+
+/* Shimmer border on feature cards (animated conic) */
+.glow-card { position: relative; }
+.glow-card::after { content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1px;
+  background: conic-gradient(from var(--ang, 0deg), transparent 55%, rgba(46,134,240,.65), transparent 75%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity .4s ease; pointer-events: none; }
+.glow-card:hover::after { opacity: 1; animation: angSpin 3s linear infinite; }
+@property --ang { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+@keyframes angSpin { to { --ang: 360deg; } }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .aurora .a-orb, .shiny, .glow-card:hover::after { animation: none !important; }
+}
+
+/* Static feature bar on the homepage */
+.feature-row { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem 1rem; }
+.feature-pill { display: inline-flex; align-items: center; gap: .5rem; padding: .6rem 1.1rem;
+  border-radius: var(--r-pill); border: 1px solid var(--border); background: var(--surface);
+  box-shadow: var(--shadow-sm); font-weight: 600; font-size: .95rem; color: var(--text); }
+.feature-pill svg { width: 18px; height: 18px; color: var(--emerald); }
