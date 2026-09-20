@@ -276,4 +276,32 @@
       heroGlow.style.transform = "translate(" + x + "px," + y + "px)";
     }, { passive: true });
   }
+
+  /* ---------- Scrollytelling story: pinned visual advances on scroll ------- */
+  (function initScrolly() {
+    var steps = $$(".scrolly-step");
+    if (!steps.length) return;
+    var frames = $$(".scrolly-canvas .frame");
+    var dots = $$(".scrolly-rail i");
+    var current = -1;
+
+    function setActive(idx) {
+      if (idx === current) return;
+      current = idx;
+      for (var i = 0; i < steps.length; i++) steps[i].classList.toggle("active", i === idx);
+      for (var j = 0; j < frames.length; j++) frames[j].classList.toggle("active", j === idx);
+      for (var k = 0; k < dots.length; k++) dots[k].classList.toggle("active", k === idx);
+    }
+    setActive(0);
+
+    if ("IntersectionObserver" in window) {
+      // A step becomes active when it crosses the vertical centre of the viewport.
+      var sio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) setActive(+en.target.getAttribute("data-step"));
+        });
+      }, { rootMargin: "-50% 0px -50% 0px", threshold: 0 });
+      steps.forEach(function (s) { sio.observe(s); });
+    }
+  })();
 })();
