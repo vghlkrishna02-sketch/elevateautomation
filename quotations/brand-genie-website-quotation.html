@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Development Quotation — The Brand Genie</title>
+<meta name="description" content="Website Design &amp; Development quotation prepared by Elevate Automation for The Brand Genie.">
+<style>
+  :root{
+    --navy:#0A1A2E;
+    --navy-2:#0F2440;
+    --blue:#1E63D6;
+    --blue-bright:#2E86F0;
+    --sky:#4DA3FF;
+    --ink:#0B1B33;
+    --muted:#5D6C82;
+    --muted-2:#8494A8;
+    --line:#E4EAF2;
+    --line-2:#EEF2F8;
+    --bg-soft:#F5F8FC;
+    --bg-card:#FBFCFE;
+    --gold:#F5A623;
+    --green:#1FA971;
+    --red-soft:#C7D0DC;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:#DDE3EC;
+    font-size:12px;
+    line-height:1.5;
+  }
+  .page{
+    width:210mm;
+    min-height:297mm;
+    margin:14px auto;
+    background:#fff;
+    position:relative;
+    padding:16mm 15mm 20mm;
+    box-shadow:0 8px 30px rgba(10,26,46,.18);
+    display:flex;
+    flex-direction:column;
+  }
+  /* ---------- generic type ---------- */
+  .eyebrow{
+    font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--blue);font-weight:700;
+  }
+  h1,h2,h3{color:var(--navy);line-height:1.15;}
+  .section-title{
+    font-size:15px;letter-spacing:.02em;font-weight:800;color:var(--navy);
+    margin-bottom:2px;
+  }
+  .lead{color:var(--muted);font-size:11.5px;line-height:1.6;}
+  .accent-bar{width:34px;height:3px;background:linear-gradient(90deg,var(--blue),var(--sky));border-radius:3px;margin:7px 0 12px;}
+
+  /* ---------- header ---------- */
+  .doc-head{display:flex;justify-content:space-between;align-items:center;gap:20px;}
+  .brand{display:flex;align-items:center;gap:14px;}
+  .brand img{height:66px;width:auto;display:block;}
+  .brand .tag{
+    border-left:2px solid var(--line);padding-left:14px;max-width:230px;
+  }
+  .brand .tag .t1{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);font-weight:700;}
+  .brand .tag .t2{font-size:10.5px;color:var(--muted);line-height:1.45;margin-top:3px;}
+  .quote-badge{text-align:right;}
+  .quote-badge .qw{
+    font-size:26px;font-weight:800;letter-spacing:.16em;color:var(--navy);
+  }
+  .quote-badge .qs{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue-bright);font-weight:700;margin-top:2px;}
+
+  /* ---------- meta strip ---------- */
+  .meta{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:9px;overflow:hidden;margin:16px 0 20px;
+  }
+  .meta div{padding:11px 14px;border-right:1px solid var(--line);}
+  .meta div:last-child{border-right:0;}
+  .meta .k{font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);font-weight:700;}
+  .meta .v{font-size:12.5px;color:var(--navy);font-weight:700;margin-top:4px;}
+
+  /* ---------- proposal block ---------- */
+  .proposal p{margin-top:8px;}
+  .proposal strong{color:var(--navy);}
+
+  /* ---------- parties ---------- */
+  .parties{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 6px;}
+  .party{
+    border:1px solid var(--line);border-radius:10px;padding:13px 15px;background:var(--bg-card);
+    position:relative;
+  }
+  .party::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--blue),var(--sky));}
+  .party .role{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-left:6px;}
+  .party .nm{font-size:14px;font-weight:800;color:var(--navy);margin:4px 0 1px 6px;}
+  .party .sub{font-size:10.5px;color:var(--muted);margin-left:6px;}
+  .party .cx{font-size:10.5px;color:var(--ink);margin:6px 0 0 6px;line-height:1.7;}
+  .party .cx span{color:var(--muted);}
+
+  /* ---------- feature cards ---------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:12px;}
+  .card{
+    border:1px solid var(--line);border-radius:10px;padding:12px 13px;background:var(--bg-card);
+  }
+  .card .ic{
+    width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--blue),var(--blue-bright));color:#fff;font-size:15px;margin-bottom:8px;
+  }
+  .card h4{font-size:11.5px;color:var(--navy);font-weight:800;margin-bottom:3px;}
+  .card p{font-size:10px;color:var(--muted);line-height:1.5;}
+
+  /* ---------- comparison table ---------- */
+  .cmp{width:100%;border-collapse:separate;border-spacing:0;margin-top:14px;font-size:10.5px;}
+  .cmp th,.cmp td{padding:6px 10px;text-align:center;border-bottom:1px solid var(--line);}
+  .cmp thead th{background:var(--bg-soft);color:var(--navy);font-size:10px;vertical-align:top;border-bottom:2px solid var(--blue);}
+  .cmp thead th:first-child{text-align:left;}
+  .cmp thead .pkg{font-size:12.5px;font-weight:800;letter-spacing:.02em;color:var(--navy);}
+  .cmp thead .price{font-size:14px;font-weight:800;color:var(--blue);margin-top:3px;}
+  .cmp thead .price small{font-size:8.5px;font-weight:600;color:var(--muted);display:block;letter-spacing:.14em;text-transform:uppercase;margin-top:2px;}
+  .cmp tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);}
+  .cmp tbody tr:nth-child(even) td{background:var(--bg-soft);}
+  .cmp .feat-note{color:var(--muted);font-weight:400;font-size:9.5px;}
+  .cmp .yes{color:var(--green);font-weight:800;font-size:12px;}
+  .cmp .no{color:var(--red-soft);font-weight:700;}
+  .cmp .val{color:var(--navy);font-weight:700;}
+  .cmp thead th:first-child{border-top-left-radius:10px;}
+  .cmp thead th:last-child{border-top-right-radius:10px;}
+  /* recommended column */
+  .cmp thead th.rec{background:#EAF2FF;border-bottom:2px solid var(--gold);}
+  .cmp td.rec{background:rgba(46,134,240,.07)!important;}
+  .cmp tbody tr:nth-child(even) td.rec{background:rgba(46,134,240,.12)!important;}
+  .ribbon{
+    display:inline-block;background:var(--gold);color:#3a2600;font-size:8px;font-weight:800;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-bottom:5px;
+  }
+
+  /* ---------- pages included ---------- */
+  .pg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:14px;}
+  .pg{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg-card);}
+  .pg .hd{padding:9px 12px;color:var(--navy);background:var(--bg-soft);border-bottom:2px solid var(--line);}
+  .pg.b .hd{border-bottom-color:#B7C2D2;}
+  .pg.s .hd{background:#EAF2FF;border-bottom-color:var(--blue);}
+  .pg.p .hd{border-bottom-color:var(--navy-2);}
+  .pg .hd .nm{font-size:11.5px;font-weight:800;letter-spacing:.02em;color:var(--navy);}
+  .pg .hd .pr{font-size:10px;color:var(--muted);margin-top:1px;}
+  .pg ol{list-style:none;padding:7px 12px 9px;}
+  .pg ol li{font-size:10px;color:var(--ink);padding:2.5px 0 2.5px 16px;position:relative;border-bottom:1px dashed var(--line-2);}
+  .pg ol li:last-child{border-bottom:0;}
+  .pg ol li::before{content:"›";position:absolute;left:2px;color:var(--blue-bright);font-weight:800;}
+
+  /* ---------- timeline / terms ---------- */
+  .steps{margin-top:12px;}
+  .step{display:flex;gap:13px;padding:9px 0;border-bottom:1px solid var(--line);}
+  .step:last-child{border-bottom:0;}
+  .step .no{
+    flex:0 0 30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-bright));
+    color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;
+  }
+  .step .no.star{background:linear-gradient(135deg,var(--gold),#e08e00);color:#3a2600;}
+  .step .bd{flex:1;}
+  .step .bd h4{font-size:12px;color:var(--navy);font-weight:800;}
+  .step .bd p{font-size:10.5px;color:var(--muted);margin-top:2px;}
+  .step .amt{flex:0 0 auto;align-self:center;text-align:right;font-size:11px;font-weight:800;color:var(--blue);white-space:nowrap;}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:12px;}
+  .term-list li{list-style:none;font-size:10.3px;color:var(--ink);padding:5px 0 5px 16px;position:relative;line-height:1.5;}
+  .term-list li::before{content:"–";position:absolute;left:2px;color:var(--blue-bright);font-weight:800;}
+
+  /* ---------- delivery pill row ---------- */
+  .del{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:12px;}
+  .del .d{border:1px solid var(--line);border-radius:10px;padding:11px 12px;text-align:center;background:var(--bg-card);}
+  .del .d .p{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:700;}
+  .del .d .n{font-size:16px;font-weight:800;color:var(--navy);margin-top:4px;}
+  .del .d .u{font-size:9.5px;color:var(--muted);}
+
+  /* ---------- total callout ---------- */
+  .invest{
+    margin-top:12px;background:linear-gradient(90deg,#EEF4FF,var(--bg-soft));
+    border:1px solid rgba(46,134,240,.28);border-radius:12px;padding:14px 18px;color:var(--navy);
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+  }
+  .invest .l .k{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);font-weight:700;}
+  .invest .l .t{font-size:14px;font-weight:800;margin-top:3px;color:var(--navy);}
+  .invest .l .s{font-size:10px;color:var(--muted);margin-top:3px;max-width:340px;}
+  .invest .r{text-align:right;}
+  .invest .r .rng{font-size:22px;font-weight:800;letter-spacing:.01em;color:var(--blue);}
+  .invest .r small{display:block;font-size:9px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:2px;}
+
+  /* ---------- acceptance ---------- */
+  .accept{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:14px;}
+  .sig{padding-top:30px;border-top:1.5px solid var(--navy);}
+  .sig .r{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);font-weight:700;}
+  .sig .n{font-size:11px;color:var(--muted);margin-top:4px;}
+
+  /* ---------- footer ---------- */
+  .foot{
+    margin-top:auto;padding-top:12px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;font-size:9px;color:var(--muted-2);letter-spacing:.04em;
+  }
+  .foot b{color:var(--navy);font-weight:700;}
+  .cta-line{
+    margin-top:16px;background:linear-gradient(90deg,rgba(30,99,214,.10),rgba(77,163,255,.06));
+    border:1px solid rgba(46,134,240,.25);border-radius:10px;padding:12px 15px;
+    font-size:11.5px;color:var(--navy);font-weight:600;
+  }
+  .cta-line b{color:var(--blue);}
+
+  @media print{
+    body{background:#fff;}
+    .page{margin:0;box-shadow:none;width:210mm;height:297mm;min-height:0;overflow:hidden;page-break-after:always;}
+    .page:last-child{page-break-after:auto;}
+  }
+  @page{size:A4;margin:0;}
+</style>
+</head>
+<body>
+
+<!-- ======================= PAGE 1 ======================= -->
+<section class="page">
+  <div class="doc-head">
+    <div class="brand">
+      <img src="elevate-logo.jpg" alt="Elevate Automation">
+      <div class="tag">
+        <div class="t1">Smart Solutions. Real Growth.</div>
+        <div class="t2">Website Design, Development &amp; Digital Experiences</div>
+      </div>
+    </div>
+    <div class="quote-badge">
+      <div class="qw">QUOTATION</div>
+      <div class="qs">Website Development</div>
+    </div>
+  </div>
+
+  <div class="meta">
+    <div><div class="k">Quote No.</div><div class="v">EA-Q-2026-0104</div></div>
+    <div><div class="k">Date</div><div class="v">20 Sept 2026</div></div>
+    <div><div class="k">Valid Until</div><div class="v">20 Oct 2026</div></div>
+    <div><div class="k">Currency</div><div class="v">INR (₹)</div></div>
+  </div>
+
+  <div class="proposal">
+    <div class="eyebrow">Proposal &amp; Commercials</div>
+    <div class="section-title">Custom Website Design &amp; Development for The Brand Genie</div>
+    <div class="accent-bar"></div>
+    <p class="lead">
+      A modern, mobile-responsive website built around <strong>The Brand Genie</strong>'s identity as a
+      branding &amp; digital-marketing agency — designed to showcase your work, win trust, and turn visitors
+      into enquiries. Every package includes a fully <strong>custom UI</strong>, a polished
+      <strong>portfolio / our-work</strong> section, a <strong>video showcase</strong>, client
+      <strong>testimonials</strong>, and a conversion-focused <strong>contact</strong> experience —
+      with three tiers so you choose exactly the depth of pages, interactivity and motion you need.
+    </p>
+  </div>
+
+  <div class="parties">
+    <div class="party">
+      <div class="role">Prepared For</div>
+      <div class="nm">The Brand Genie</div>
+      <div class="sub">Branding &amp; Digital Marketing Agency</div>
+      <div class="cx"><span>Phone</span>&nbsp; +91 97275 87535<br><span>Email</span>&nbsp; brandpowerahmedabad@gmail.com</div>
+    </div>
+    <div class="party">
+      <div class="role">Prepared By</div>
+      <div class="nm">Elevate Automation</div>
+      <div class="sub">Web, Automation &amp; AI Solutions</div>
+      <div class="cx"><span>Phone</span>&nbsp; +91 82001 91137<br><span>Email</span>&nbsp; team@elevateautomation.in</div>
+    </div>
+  </div>
+
+  <div style="margin-top:18px;">
+    <div class="eyebrow">What You Get</div>
+    <div class="accent-bar"></div>
+    <div class="cards">
+      <div class="card"><div class="ic">🎨</div><h4>Custom UI Design</h4><p>A unique interface crafted to your brand — no cookie-cutter templates.</p></div>
+      <div class="card"><div class="ic">📱</div><h4>Mobile Responsive</h4><p>Pixel-perfect on phone, tablet &amp; desktop, tested across screen sizes.</p></div>
+      <div class="card"><div class="ic">🎬</div><h4>Video Showcase</h4><p>Present your best work in motion — from a basic gallery to premium reels.</p></div>
+      <div class="card"><div class="ic">🖼️</div><h4>Portfolio / Our Work</h4><p>A curated gallery that proves your results and builds instant credibility.</p></div>
+      <div class="card"><div class="ic">⭐</div><h4>Testimonials</h4><p>Social proof from happy clients, laid out to earn trust fast.</p></div>
+      <div class="card"><div class="ic">✨</div><h4>Scroll &amp; Parallax Motion</h4><p>Smooth background movement &amp; interactive scroll effects (Standard &amp; Premium).</p></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div><b>Elevate Automation</b> &nbsp;·&nbsp; Quotation EA-Q-2026-0104</div>
+    <div>Page 1 of 3</div>
+  </div>
+</section>
+
+<!-- ======================= PAGE 2 ======================= -->
+<section class="page">
+  <div class="eyebrow">Choose Your Package</div>
+  <div class="section-title">Website Development Packages</div>
+  <div class="accent-bar"></div>
+  <p class="lead">Three focused tiers — all custom-designed and fully mobile-responsive. The
+    <strong>Standard</strong> plan is our most popular choice, balancing pages, interactivity and value.</p>
+
+  <table class="cmp">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th><div class="pkg">Basic</div><div class="price">₹15,000</div></th>
+        <th class="rec"><div class="ribbon">★ Recommended</div><div class="pkg">Standard</div><div class="price">₹25,000</div></th>
+        <th><div class="pkg">Premium</div><div class="price">₹35,000</div></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Website Type</td><td class="val">Professional</td><td class="rec val">Modern &amp; Interactive</td><td class="val">Premium Creative</td></tr>
+      <tr><td>Custom UI Design</td><td><span class="yes">✓</span></td><td class="rec"><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+      <tr><td>Mobile Responsive</td><td><span class="yes">✓</span></td><td class="rec"><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+      <tr><td>Pages Included</td><td class="val">5–6 Pages</td><td class="rec val">6–8 Pages</td><td class="val">8–10 Pages</td></tr>
+      <tr><td>Home Page</td><td><span class="yes">✓</span></td><td class="rec"><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+      <tr><td>About Us</td><td><span class="yes">✓</span></td><td class="rec"><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+      <tr><td>Services</td><td><span class="yes">✓</span></td><td class="rec"><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+      <tr><td>Contact Us</td><td><span class="yes">✓</span></td><td class="rec"><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+      <tr><td>Video Showcase</td><td class="val">Basic</td><td class="rec val">Interactive</td><td class="val">Premium</td></tr>
+      <tr><td>Portfolio / Our Work</td><td><span class="yes">✓</span></td><td class="rec"><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+      <tr><td>Testimonials</td><td><span class="yes">✓</span></td><td class="rec"><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+      <tr><td>Scroll Background / Parallax</td><td><span class="no">—</span></td><td class="rec"><span class="yes">✓</span></td><td><span class="yes">✓</span> <span class="feat-note">Advanced</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="eyebrow" style="margin-top:16px;">Pages Included</div>
+  <div class="accent-bar"></div>
+  <div class="pg-grid">
+    <div class="pg b">
+      <div class="hd"><div class="nm">Basic</div><div class="pr">₹15,000 · 5–6 Pages</div></div>
+      <ol>
+        <li>Home</li><li>About Us</li><li>Services</li><li>Our Work / Portfolio</li><li>Video Gallery</li><li>Contact Us</li>
+      </ol>
+    </div>
+    <div class="pg s">
+      <div class="hd"><div class="nm">Standard ★</div><div class="pr">₹25,000 · 6–8 Pages</div></div>
+      <ol>
+        <li>Home</li><li>About Us</li><li>Services</li><li>Service Details</li><li>Our Work / Portfolio</li><li>Video Showcase</li><li>Testimonials</li><li>Contact Us</li>
+      </ol>
+    </div>
+    <div class="pg p">
+      <div class="hd"><div class="nm">Premium</div><div class="pr">₹35,000 · 8–10 Pages</div></div>
+      <ol>
+        <li>Home</li><li>About Us</li><li>Services</li><li>Individual Service Details</li><li>Our Work / Portfolio</li><li>Video Showcase</li><li>Case Studies</li><li>Testimonials</li><li>FAQ / Insights</li><li>Contact Us</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="cta-line">
+    Every package is delivered <b>ready to launch</b> — responsive, on-brand and optimised for enquiries.
+    Not sure which tier fits? We'll recommend one after a quick 15-minute call.
+  </div>
+
+  <div class="foot">
+    <div><b>Elevate Automation</b> &nbsp;·&nbsp; Quotation EA-Q-2026-0104</div>
+    <div>Page 2 of 3</div>
+  </div>
+</section>
+
+<!-- ======================= PAGE 3 ======================= -->
+<section class="page">
+  <div class="eyebrow">Payment Terms &amp; Timeline</div>
+  <div class="section-title">Simple, milestone-based payments</div>
+  <div class="accent-bar"></div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="no">1</div>
+      <div class="bd"><h4>On Acceptance / Kick-off</h4><p>Signed quotation confirms the project. Onboarding, content collection &amp; UI design begin.</p></div>
+      <div class="amt">50% advance</div>
+    </div>
+    <div class="step">
+      <div class="no">2</div>
+      <div class="bd"><h4>On Design &amp; Staging Approval</h4><p>Full site built and shared on a private staging link for your review and sign-off.</p></div>
+      <div class="amt">40% on review</div>
+    </div>
+    <div class="step">
+      <div class="no">3</div>
+      <div class="bd"><h4>On Go-Live Handover</h4><p>Website deployed to your domain, handover completed with a quick walkthrough.</p></div>
+      <div class="amt">10% on launch</div>
+    </div>
+    <div class="step">
+      <div class="no star">★</div>
+      <div class="bd"><h4>Annual Care Plan — Optional</h4><p>Updates, backups, security &amp; small changes after launch. Add-on, billed yearly.</p></div>
+      <div class="amt">from ₹6,000/yr</div>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:14px;">Estimated Delivery</div>
+  <div class="accent-bar"></div>
+  <div class="del">
+    <div class="d"><div class="p">Basic</div><div class="n">7–10</div><div class="u">working days</div></div>
+    <div class="d"><div class="p">Standard</div><div class="n">12–15</div><div class="u">working days</div></div>
+    <div class="d"><div class="p">Premium</div><div class="n">18–21</div><div class="u">working days</div></div>
+  </div>
+  <p class="lead" style="margin-top:8px;font-size:10px;">Timelines begin once content (text, images, videos &amp; logo) is handed over and the advance is received. Each package includes <strong>2 rounds of revisions</strong>.</p>
+
+  <div class="two-col">
+    <div>
+      <div class="eyebrow">Commercial Terms</div>
+      <div class="accent-bar"></div>
+      <ul class="term-list">
+        <li>All prices quoted in INR and are <b>one-time</b> for design &amp; development.</li>
+        <li>Quote valid for 30 days from the date above.</li>
+        <li>Invoices payable within 7 days (Net-7).</li>
+        <li>Payment via UPI / Bank Transfer / Razorpay.</li>
+        <li>2 rounds of revisions included per package; extra rounds billed separately.</li>
+        <li>Source files &amp; full ownership handed over on final payment.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="eyebrow">Assumptions &amp; Exclusions</div>
+      <div class="accent-bar"></div>
+      <ul class="term-list">
+        <li>Domain &amp; hosting purchased by client (we set up &amp; deploy at no extra charge).</li>
+        <li>Content — text, images, videos &amp; logo — supplied by The Brand Genie.</li>
+        <li>Logo design, copywriting &amp; premium stock media available as add-ons.</li>
+        <li>Basic on-page SEO &amp; contact form included; advanced SEO / ads separate.</li>
+        <li>E-commerce, blog CMS &amp; multi-language available on request.</li>
+        <li>Ongoing maintenance covered under the optional Annual Care Plan.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="invest">
+    <div class="l">
+      <div class="k">Your Investment</div>
+      <div class="t">One-time website design &amp; development</div>
+      <div class="s">Pick the tier that fits — Basic, Standard (recommended) or Premium. All custom-designed &amp; mobile-responsive.</div>
+    </div>
+    <div class="r">
+      <div class="rng">₹15,000 – ₹35,000</div>
+      <small>Standard ₹25,000 ★</small>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:16px;">Accepted &amp; Approved</div>
+  <div class="accent-bar"></div>
+  <div class="accept">
+    <div class="sig">
+      <div class="r">For The Brand Genie</div>
+      <div class="n">Client Signature &amp; Company Stamp — Date</div>
+    </div>
+    <div class="sig">
+      <div class="r">For Elevate Automation</div>
+      <div class="n">Authorised Signatory — Date</div>
+    </div>
+  </div>
+
+  <div class="cta-line" style="margin-top:14px;">
+    Ready to give The Brand Genie a website as sharp as your work? <b>Let's build it — pick a package and we'll start this week. 🚀</b>
+  </div>
+
+  <div class="foot">
+    <div><b>Elevate Automation</b> &nbsp;·&nbsp; team@elevateautomation.in &nbsp;·&nbsp; +91 82001 91137</div>
+    <div>Page 3 of 3</div>
+  </div>
+</section>
+
+</body>
+</html>
